@@ -1,0 +1,143 @@
+
+/* .chatContainer{
+    background-color: violet;
+    width:40vmax;
+    height:70vmax;
+    float:right;
+    box-sizing:border-box;
+}
+.header{
+    text-align: center;
+    color:rgb(13, 2, 23);
+    height:15%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2vh;
+}
+.header img{
+    color:white;
+    margin:1.5vh;
+    transition: all 0.3s;
+    cursor:pointer;
+    height:50%;
+    font-size:1.5vh;
+}
+.header img:hover{
+    transform:scale(1.2) ;
+
+}
+.chatBox{
+    width: 100%;
+    border: 1vmax solid rgb(179, 31, 179);
+    height:15%;
+}
+.inputBox{
+   position:fixed;
+   bottom: 0;
+   width: 70%;
+    
+} */
+.chatPage{
+    width:100vw;
+    height:75%;
+    display:flex;
+     justify-content:right; 
+    align-items: center; 
+    margin-top: 1%;
+
+}
+.chatContainer{
+    background-color: aliceblue;
+    height: 100%;
+    width:40%;
+    float:right;
+    
+   
+}
+.header{
+    background-color: #46137c;
+    height:10%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.header>h2{
+    color: White;
+   margin: 2.5vmax;
+  
+}
+.header img{
+    color:white;
+    margin:1.5vmax;
+    transition: all 0.3s;
+    cursor:pointer;
+    height:70%;
+    font-size:1.5vmax;
+}
+
+.header img:hover{
+    transform:scale(1.2) ;
+}
+
+.chatBox{
+  
+    height: 80%;
+    box-sizing:border-box;
+    
+
+
+}
+.inputBox{
+    /* border:0.1vmax solid rgb(205, 12, 231); */
+    height:10%;
+    display: flex;
+    box-sizing: border-box;
+    vertical-align: bottom;
+    
+    
+
+
+    
+}
+
+#chatInput{
+    width:80%;
+    border: none;
+    background-color: #e9d8fb;
+    padding:2vmax;
+    box-sizing: border-box;
+    outline:none;
+    font-size:0.9vmax;
+    
+
+    font-family: 'Seoge UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.sendBtn{
+    background-color:#46137c ;
+    color:white;
+    border:none;
+    width:20%;
+    transition: all 0.3s;
+    cursor:pointer;
+    
+    
+}
+.sendBtn > img{
+    width:2.6vmax;
+    filter:brightness(100) invert();
+    transition: all 0.3s;
+
+
+}
+
+.sendBtn:hover{
+    background-color:#5e269a; 
+}
+.sendBtn:hover img{
+    transform: translateX(10px);
+}

@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, {  useState } from 'react';
 import './App.css';
+import Chat from './components/Chat/Chat';
+import message from './images/message.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMessage } from '@fortawesome/free-solid-svg-icons'
+// import MessageIcon from '@mui/icons-material/Message';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [state, setState] = useState(false)
+
+return (
+
+  <div className="App">
+    <div class="container">
+  
+      <h3 class="Title">SYNC ON</h3>
+</div>
+
+{state ? <Chat /> : null}
+
+    <button className='btn' onClick={() => setState(true)}><FontAwesomeIcon className='message'icon={faMessage} /></button>
+
+</div>
+
+);
+
+};
+
 
 export default App;
