@@ -1,11 +1,31 @@
-
+import React, { useState, useEffect } from 'react'
+import socketIO from 'socket.io-client';
 import "./Chat.css"
-// import ReactScrollToBottom from "react-scroll-to-bottom";
+
 import closeIcon from "../../images/closeIcon.png";
 import sendLogo from "../../images/send.png"
-
+import Message from "../Message/Message"
+let socket;
+const ENDPOINT = "http://localhost:8000"
 
 const Chat = () => {
+   
+    const [id, setid] = useState("")
+    const [messages, setMessages] = useState([]);
+
+    const send = () => {
+        const message = document.getElementById('chatInput').value;
+         socket.emit('message', { message,id });
+         document.getElementById('chatInput').value = "";
+     }
+ 
+
+    useEffect(() => {
+        socket = socketIO(ENDPOINT, { transports: ['websocket'] });
+        // const id = socket.id;
+       
+        socket.emit('joined', { id , messages })
+    })
     
     return (
       

@@ -1,7 +1,7 @@
 import React, {  useState } from 'react';
 import './App.css';
 import Chat from './components/Chat/Chat';
-import message from './images/message.png';
+// import Spotify from './components/Music/Music'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons'
 // import MessageIcon from '@mui/icons-material/Message';
@@ -12,10 +12,11 @@ function App() {
 return (
 
   <div className="App">
-    <div class="container">
+    <div className="container">
   
-      <h3 class="Title">SYNC ON</h3>
-</div>
+      <h3 className="Title">SYNC ON</h3>
+    </div>
+    
 
 {state ? <Chat /> : null}
 
