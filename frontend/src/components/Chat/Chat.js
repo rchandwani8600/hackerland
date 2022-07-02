@@ -7,6 +7,7 @@ import sendLogo from "../../images/send.png"
 import Message from "../Message/Message"
 let socket;
 const ENDPOINT = "http://localhost:8000"
+var access_token = ""
 
 const Chat = () => {
    
@@ -24,7 +25,7 @@ const Chat = () => {
         socket = socketIO(ENDPOINT, { transports: ['websocket'] });
         // const id = socket.id;
        
-        socket.emit('joined', { id , messages })
+        socket.emit('joined', access_token)
     })
     
     return (
