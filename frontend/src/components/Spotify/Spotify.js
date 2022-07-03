@@ -67,7 +67,7 @@ const Spotify = () => {
     // await axios.get(`${Constants.BACKEND_URL}/oauth/url`);
 
     return <div className='spotify-window'>
-        <div className='header'><h2 className="sp-top">{playData.prev ? 'Recently Played' : 'Current Play'}</h2></div>
+        <h2 className="sp-top">{playData.prev ? 'Recently Played' : 'Playing Currently'}</h2>
         <img className='spotify-play-img' src={playData.url}></img>
         <div className='spotify-song-stats'>
             <h2 className="sp-text">{playData.name}</h2>

@@ -5,19 +5,22 @@
     width:120vmax;
     position:fixed;
     right:0.1%;
-    bottom:1.2%;
+    /* bottom:1.2%; */
     display:flex;
      justify-content:right; 
     align-items: center; 
 
-    /* margin-top: 1%; */
+    margin-top: 1%;
 
 }
 .chatContainer{
     background-color: aliceblue;
     height: 100%;
-    width:40%;
+    width:30%;
     float:right;
+    max-width: 450px;
+    margin-right: 6%;
+    text-align: center;
     
    
 }
@@ -62,21 +65,16 @@
     display: flex;
     box-sizing: border-box;
     vertical-align: bottom;
-    
-    
-
-
-    
 }
 
 #chatInput{
     width:80%;
     border: none;
     background-color: #e9d8fb;
-    padding:2vmax;
+    padding-left:2vmax;
     box-sizing: border-box;
     outline:none;
-    font-size:0.9vmax;
+    font-size:1.4vmax;
     
 
     font-family: 'Seoge UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

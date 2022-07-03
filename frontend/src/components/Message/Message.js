@@ -4,16 +4,20 @@ const Message = ({ user, message, classs }) => {
    
     if (user!='System') {
         return (
-            <div className={`messageBox ${classs}`} >
-                {`${user}:${message}`}
+            <div className='coverMsg'>
+                <div className={`messageBox ${classs}`} >
+                    {`${user}:${message}`}
+                </div>
             </div>
         )
         
     }
     else if (user = 'System') {
         return (
-            <div className={`messageBox ${classs}`}>
-                {`System:${message}`}
+            <div className='coverMsg'>
+                <div className={`messageBox ${classs}`}>
+                    {`System:${message}`}
+                </div>
             </div>
         )
     }
