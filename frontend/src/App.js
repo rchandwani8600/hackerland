@@ -7,8 +7,8 @@ import { faMessage } from '@fortawesome/free-solid-svg-icons'
 // import MessageIcon from '@mui/icons-material/Message';
 
 import { BrowserRouter as Router, Routes, Route, useSearchParams, useNavigate} from "react-router-dom";
-var AUTH_URL = "https://accounts.spotify.com/en/authorize?client_id=c080f2ccbe4e4076acec716794d739c1&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fcallback&scope=user-read-currently-playing+user-read-email&show_dialog=True"
-var BACKEND_URL = "http://localhost:8000"
+import Spotify from './components/Spotify/Spotify';
+import { Constants } from './components/helpers';
 
 const axios = require('axios');
 
@@ -27,20 +27,31 @@ function App() {
 function Home() {
   const [state, setState] = useState(false)
   var access_token = localStorage.getItem('access_token');
+  var last_saved = localStorage.getItem('last_saved') || 0;
+  var current_time = new Date().getTime()
   let navigate = useNavigate();
   useEffect(() => {  
-    if(access_token == undefined){
+    if(access_token == undefined || current_time - last_saved >= 50*60*1000 ){
+      localStorage.clear()
       console.log("not signed in")
       navigate("/login")
     }
   })
+
+  async function logout(){
+    localStorage.clear()
+    navigate('/login')
+  }
+
   return (
     <div className="App">
           <div className="container">
             <h3 className="Title">SYNC ON</h3>
           </div>
+          <Spotify/>
           {state ? <Chat /> : null}
           <button className='btn' onClick={() => setState(true)}><FontAwesomeIcon className='message'icon={faMessage} /></button>
+          <button className='btn-logout' onClick={logout}>Logout</button>
         </div>
   );
 }
@@ -54,7 +65,18 @@ function Login() {
       navigate("/")
     }
   })
-  return <h2><a href={AUTH_URL}>Login via Spotify</a></h2>;
+  const [auth_resp, setAuth_resp] = useState({})
+  useEffect(() => {
+    async function loginUrl(){
+        const response = await axios.get(`${Constants.BACKEND_URL}/oauth/url`).then(resp => setAuth_resp(resp.data))
+    }
+    loginUrl()
+  }, [])
+  
+  if(auth_resp != ''){
+    return <h2><a href={auth_resp.url}>Login via Spotify</a></h2>;
+  }
+  else return <h2>Loding...</h2>
 }
 
 function Callback(){
@@ -64,6 +86,7 @@ function Callback(){
   getAndSetToken(spotify_code).then( (tokens) => {
     console.log(tokens)
     localStorage.setItem('access_token', tokens.access_token);
+    localStorage.setItem('last_saved', new Date().getTime());
     console.log("saved access token")
     navigate("/")
   }).catch((error) => {
@@ -74,7 +97,7 @@ function Callback(){
 }
 
 async function getAndSetToken(code) {
-  const response = await axios.get(`${BACKEND_URL}/oauth/callback?code=${code}`);
+  const response = await axios.get(`${Constants.BACKEND_URL}/oauth/callback?code=${code}`);
   return response.data
 }
 

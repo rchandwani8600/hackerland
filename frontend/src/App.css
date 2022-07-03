@@ -57,6 +57,20 @@ body{
   cursor: pointer;
 
 }
+
+.btn-logout{
+  height: 5vh;
+  width: 10vh;
+  background-color:#5e269a;
+  color: white;
+  position:fixed;
+  right: 0;
+  top: 0;
+  margin:2vh;
+  border-radius:2vh;
+  cursor: pointer;
+
+}
 .message{
   height:80%;
 
