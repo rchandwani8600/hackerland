@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 .spotify-window{
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     width: 50%;
     height: 85%;
     left:0.1%;
@@ -14,20 +14,20 @@
     text-align: center;
     /* padding-left: 2%; */
     position: absolute;
+    color: aliceblue;
 }
 
 .spotify-play-img{
     height: 70%;
-    margin-top:5%;
+    /* margin-top:5%; */
     /* margin-left: auto;
     margin-right: auto;
     display: block; */
 }
 
-/* .spotify-song-stats{
-    text-align: center;
-    display: block;
-} */
+.spotify-song-stats{
+    color: aliceblue;
+}
 
 /* .center{
     margin: auto;
