@@ -5,17 +5,17 @@ import "./Chat.css"
 import closeIcon from "../../images/closeIcon.png";
 import sendLogo from "../../images/send.png"
 import Message from "../Message/Message"
+import { Constants, getAccessToken } from '../helpers';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 let socket;
-const ENDPOINT = "http://localhost:8000"
+const ENDPOINT = Constants.BACKEND_URL
 
 const Chat = () => {
-   
+    let navigate = useNavigate()
+    
     const [id, setid] = useState("")
     const [messages, setMessages] = useState([]);
-    // const [systemNotification, setSystemNotification] = useState([]);
-
-    var systemNotification = []
-    // var messages = [['abh','asd',true]]
 
 
     const send = () => {
@@ -33,21 +33,17 @@ const Chat = () => {
             socket_id = socket.id
         })
 
-        var access_token = localStorage.getItem("access_token")
-        socket.emit('joined', access_token)
-
-        socket.on('system', (data) => {
-            data = JSON.parse(data)
-            systemNotification.push(data.msg)
-            // setSystemNotification([...systemNotification,data.msg])
-            console.log(systemNotification)
-        })
+        socket.emit('joined', getAccessToken(navigate))
 
         socket.on('disconnect', (data) => {
             //  setMessages([...messages,data]);
             console.log("disconnectedddddd");
         })
-        
+
+        socket.on("play", (data) => {
+            console.log(data)
+            playSong(getAccessToken(navigate), data)
+        } )
             
       return () => {
           socket.emit('disconnected');
@@ -59,13 +55,19 @@ const Chat = () => {
     useEffect(() => {
         socket.on('sendMessage', (data) => {
             data = JSON.parse(data)
-            setMessages([...messages, [data.sent_from.display_name,data.msg, data.sent_id == socket.id]])
-            console.log(messages,'---');
+            setMessages([...messages, [data.sent_from.display_name,data.msg, data.sent_id == socket.id ? "right":"left"]])
+            // console.log(messages,'---');
+        })
+
+        socket.on('system', (data) => {
+            console.log("system", data)
+            data = JSON.parse(data)
+            setMessages([...messages, ["System",data.msg, "center"]])
+            // setSystemNotification([...systemNotification,data.msg])
+            // console.log(messages,'++++');
         })
     },[messages])
 
-
-    var item = messages[0]
     return (
       
         <div className="chatPage">
@@ -75,20 +77,29 @@ const Chat = () => {
                   <a href="/"><img src={closeIcon} alt="Close"/></a>
               </div>
               <div className="chatBox">
-                {messages.map((item, i) => <Message user={item[2] ? '' : item[0]} message={item[1]} classs={item[2] ? 'right' : 'left'} />)}
+                {messages.map((item, i) => <Message user={item[0]} message={item[1]} classs={item[2]} />)}
                 </div>
               <div className="inputBox">
                   <input type="text" id="chatInput" />
                   <button onClick={send} className="sendBtn"><img src={sendLogo} alt="Send"/></button>
             </div>
-               
-             
             </div>
             </div>
-            
-          
-      
   )
+}
+
+async function playSong(token, uri){
+    const response = await axios.put(
+        'https://api.spotify.com/v1/me/player/play',
+        {
+            uris: [uri]
+        },
+        {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        }
+    )
 }
 
 export default  Chat 
