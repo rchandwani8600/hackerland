@@ -91,7 +91,17 @@ function Login() {
                     <li></li>
             </ul>
     </div >
-      <div className='titlediv'><h3 className="Title">SYNC US</h3></div>
+   <div className="titlediv"> <div class="waviy">
+  <span >S</span>
+  <span >Y</span>
+  <span >N</span>
+  <span >C</span>
+  <span className="separator">      
+  <span >U</span>
+  <span >S</span>
+  </span>
+  </div>
+</div>
       <div className = "login">
            
         <img src={Logo} alt="Spotify Logo" id="spotifylogo" />

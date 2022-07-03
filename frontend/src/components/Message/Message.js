@@ -5,7 +5,7 @@ const Message = ({ user, message, classs }) => {
     if (user!='System') {
         return (
             <div className={`messageBox ${classs}`} >
-                {`${user}:${message}`}
+                {`${user}: ${message}`}
             </div>
         )
         
@@ -13,7 +13,7 @@ const Message = ({ user, message, classs }) => {
     else if (user = 'System') {
         return (
             <div className={`messageBox ${classs}`}>
-                {`System:${message}`}
+                {`System: ${message}`}
             </div>
         )
     }
@@ -21,7 +21,7 @@ const Message = ({ user, message, classs }) => {
     else {
         return (
             <div className={`messageBox ${classs}`}>
-                {`You:${message}`}
+                {`You: ${message}`}
             </div>
         )
     }
