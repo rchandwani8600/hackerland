@@ -91,19 +91,22 @@ body{
 
 #spotifylogo{
   margin-top: 10%;
-  height: 20vmax;
-  margin-bottom:5%;
+  height: 10vmax;
+  margin-bottom:100px;
+  min-height: 200px;
 }
 
 .spotifybtn{
  
   width:30%;
-  border-radius: 5vmax;
+  max-width: 300px;
+  border-radius: 10vmax;
   background-color: rgb(30,215,96);
   cursor:pointer;
   transition: all 0.3s;
+  border-color: aliceblue;
 }
-.loginurl{
+.loginUrl{
   color:black;
   text-decoration: none;
 }

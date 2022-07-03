@@ -43,6 +43,10 @@ const Chat = () => {
         socket.on("play", (data) => {
             console.log(data)
             playSong(getAccessToken(navigate), data)
+        })
+
+        socket.on("pause", (data) => {
+            pauseSong(getAccessToken(navigate))
         } )
             
       return () => {
@@ -94,6 +98,17 @@ async function playSong(token, uri){
         {
             uris: [uri]
         },
+        {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        }
+    )
+}
+
+async function pauseSong(token){
+    const response = await axios.put(
+        'https://api.spotify.com/v1/me/player/pause',"",
         {
             headers: {
                 Authorization: 'Bearer ' + token

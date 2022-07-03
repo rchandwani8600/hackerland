@@ -1,5 +1,6 @@
 import React, {  useState, useEffect } from 'react';
 import './App.css';
+import './BG.css';
 import Chat from './components/Chat/Chat';
 // import Spotify from './components/Music/Music'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -76,6 +77,20 @@ function Login() {
   if(auth_resp != ''){
     return (
       <div>
+        <div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
       <div className='titlediv'><h3 className="Title">SYNC US</h3></div>
       <div className = "login">
            
