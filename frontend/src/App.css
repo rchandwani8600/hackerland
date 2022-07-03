@@ -77,30 +77,37 @@ body{
 
  
 }
+.titlediv{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
 
-div{
+.login{
   display: flex;
   align-items: center;
   justify-content: center;
 }
-img{
-  margin-top: 50%;
+
+#spotifylogo{
+  margin-top: 10%;
   height: 20vmax;
+  margin-bottom:10%;
 }
 
-button{
-  margin-top: 30%;
-  width:70%;
+.spotifybtn{
+ 
+  width:30%;
   border-radius: 5vmax;
   background-color: rgb(30,215,96);
   cursor:pointer;
   transition: all 0.3s;
 }
-a{
+.loginurl{
   color:black;
   text-decoration: none;
 }
 
-button:hover{
+.spotifybtn:hover{
   transform:scale(1.2) ;
 }

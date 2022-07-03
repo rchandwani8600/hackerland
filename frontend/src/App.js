@@ -75,17 +75,17 @@ function Login() {
   
   if(auth_resp != ''){
     return (
-      <body>
-      <h3 className="Title">SYNC US</h3>
       <div>
+      <div className='titlediv'><h3 className="Title">SYNC US</h3></div>
+      <div className = "login">
            
-        <img src={Logo} alt="Spotify Logo" />
+        <img src={Logo} alt="Spotify Logo" id="spotifylogo" />
       </div>
 
-      <div>
-        <button> <h2><a href={auth_resp.url}>Login via Spotify</a></h2></button>
+      <div className="login">
+        <button className="spotifybtn"> <h2><a className="loginUrl" href={auth_resp.url}>Login via Spotify</a></h2></button>
       </div>
-    </body>
+    </div>
   )
     
   }

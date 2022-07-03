@@ -8,8 +8,8 @@ export function getAccessToken(navigate){
         navigate("/login")
     }
 }
-var PROD_URL = "http://20.204.64.17:8000/"
+var PROD_URL = "http://20.204.64.17:8000"
 var TEST_URL = "http://localhost:8000"
 export const Constants = {
-    BACKEND_URL: TEST_URL
+    BACKEND_URL: PROD_URL
 }
