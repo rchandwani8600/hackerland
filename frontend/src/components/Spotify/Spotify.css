@@ -1,7 +1,16 @@
+.header{
+    background-color: #46137c;
+    height:10%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .spotify-window{
     background-color: aliceblue;
     width: 50%;
-    height: 70%;
+    height: 85%;
+    left:0.1%;
+    bottom:1.2%;
     text-align: center;
     /* padding-left: 2%; */
     position: absolute;
@@ -9,6 +18,7 @@
 
 .spotify-play-img{
     height: 70%;
+    margin-top:5%;
     /* margin-left: auto;
     margin-right: auto;
     display: block; */

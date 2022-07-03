@@ -1,50 +1,16 @@
 
-/* .chatContainer{
-    background-color: violet;
-    width:40vmax;
-    height:70vmax;
-    float:right;
-    box-sizing:border-box;
-}
-.header{
-    text-align: center;
-    color:rgb(13, 2, 23);
-    height:15%;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2vh;
-}
-.header img{
-    color:white;
-    margin:1.5vh;
-    transition: all 0.3s;
-    cursor:pointer;
-    height:50%;
-    font-size:1.5vh;
-}
-.header img:hover{
-    transform:scale(1.2) ;
-
-}
-.chatBox{
-    width: 100%;
-    border: 1vmax solid rgb(179, 31, 179);
-    height:15%;
-}
-.inputBox{
-   position:fixed;
-   bottom: 0;
-   width: 70%;
-    
-} */
 .chatPage{
-    width:100vw;
-    height:75%;
+
+    height:85%;
+    width:120vmax;
+    position:fixed;
+    right:0.1%;
+    bottom:1.2%;
     display:flex;
      justify-content:right; 
     align-items: center; 
-    margin-top: 1%;
+
+    /* margin-top: 1%; */
 
 }
 .chatContainer{

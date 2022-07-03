@@ -1,6 +1,8 @@
 import React from 'react';
+import './Message.css'
 const Message = ({ user, message, classs }) => {
-    if (user) {
+   
+    if (user!='System') {
         return (
             <div className={`messageBox ${classs}`} >
                 {`${user}:${message}`}
@@ -8,6 +10,14 @@ const Message = ({ user, message, classs }) => {
         )
         
     }
+    else if (user = 'System') {
+        return (
+            <div className={`messageBox ${classs}`}>
+                {`System:${message}`}
+            </div>
+        )
+    }
+
     else {
         return (
             <div className={`messageBox ${classs}`}>

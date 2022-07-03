@@ -74,13 +74,13 @@ const Chat = () => {
           <div className="chatContainer">
               <div className="header">
                   <h2>Messages</h2>
-                  <a href="/"><img src={closeIcon} alt="Close"/></a>
+                  {/* <a href="/"><img src={closeIcon} alt="Close"/></a> */}
               </div>
               <div className="chatBox">
-                {messages.map((item, i) => <Message user={item[0]} message={item[1]} classs={item[2]} />)}
+                    {messages.map((item, i) => <Message user={item[0]} message={item[1]} classs={item[2]} />)}
                 </div>
               <div className="inputBox">
-                  <input type="text" id="chatInput" />
+                  <input onKeyPress={(event) => event.key === 'Enter' ? send() : null} type="text" id="chatInput" />
                   <button onClick={send} className="sendBtn"><img src={sendLogo} alt="Send"/></button>
             </div>
             </div>

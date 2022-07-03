@@ -49,8 +49,8 @@ function Home() {
             <h3 className="Title">SYNC US</h3>
           </div>
           <Spotify/>
-          {state ? <Chat /> : null}
-          <button className='btn' onClick={() => setState(true)}><FontAwesomeIcon className='message'icon={faMessage} /></button>
+           <Chat /> 
+          {/* <button className='btn' onClick={() => setState(true)}><FontAwesomeIcon className='message'icon={faMessage} /></button> */}
           <button className='btn-logout' onClick={logout}>Logout</button>
         </div>
   );
@@ -83,7 +83,7 @@ function Login() {
       </div>
 
       <div className="login">
-        <button className="spotifybtn"> <h2><a className="loginUrl" href={auth_resp.url}>Login via Spotify</a></h2></button>
+        <button className="spotifybtn"> <h2><a href={auth_resp.url} className="loginurl">Login via Spotify</a></h2></button>
       </div>
     </div>
   )
