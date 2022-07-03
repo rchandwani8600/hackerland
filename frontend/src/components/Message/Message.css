@@ -6,7 +6,7 @@
     padding:1vmax;
     margin:1vmax;
     border-radius:0.5vmax;
-    display:inline-block;
+    /* display:inline-block; */
     clear:both;
     font-size:1.5vmax;
     font-family: 'Seoge UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
@@ -15,10 +15,12 @@
     text-align: center;
     height: 2% ;
     font-size:1.2vmax;
-    /* margin-left:30%; */
-    margin-right: auto;
+    margin: auto;
+    width: max-content;
+    margin-top: 4px;
     background-color:#d5bbef;
     color: #46137c;
+
 }
 
 .right{
@@ -30,7 +32,7 @@
 
 .left{
     float:left;
-    background-color:#46137c;
+    background-color:#799199;
     color:white;
     text-align:left;
 
