@@ -5,11 +5,11 @@ import Chat from './components/Chat/Chat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons'
 // import MessageIcon from '@mui/icons-material/Message';
+import Logo  from './images/logo.png'
 
 import { BrowserRouter as Router, Routes, Route, useSearchParams, useNavigate} from "react-router-dom";
 import Spotify from './components/Spotify/Spotify';
 import { Constants } from './components/helpers';
-
 const axios = require('axios');
 
 function App() {
@@ -46,7 +46,7 @@ function Home() {
   return (
     <div className="App">
           <div className="container">
-            <h3 className="Title">SYNC ON</h3>
+            <h3 className="Title">SYNC US</h3>
           </div>
           <Spotify/>
           {state ? <Chat /> : null}
@@ -74,7 +74,20 @@ function Login() {
   }, [])
   
   if(auth_resp != ''){
-    return <h2><a href={auth_resp.url}>Login via Spotify</a></h2>;
+    return (
+      <body>
+      <h3 className="Title">SYNC US</h3>
+      <div>
+           
+        <img src={Logo} alt="Spotify Logo" />
+      </div>
+
+      <div>
+        <button> <h2><a href={auth_resp.url}>Login via Spotify</a></h2></button>
+      </div>
+    </body>
+  )
+    
   }
   else return <h2>Loding...</h2>
 }
